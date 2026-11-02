@@ -49,3 +49,8 @@ process.on('uncaughtException', (error) => {
   console.error('💥 [CRITICAL_UNCAUGHT_EXCEPTION]:', error);
   process.exit(1);
 });
+
+module.exports = app;
+module.exports.app = app;
+module.exports.default = app;
+

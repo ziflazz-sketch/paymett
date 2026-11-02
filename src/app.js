@@ -128,6 +128,8 @@ app.use((req, res) => {
 // ==============================================================================
 app.use(errorHandler);
 
-module.exports = {
-  app
-};
+// Export Express app as default function for Vercel Serverless Function compatibility,
+// while preserving named export for CommonJS destructuring: const { app } = require('./src/app')
+module.exports = app;
+module.exports.app = app;
+module.exports.default = app;

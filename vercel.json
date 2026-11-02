@@ -1,7 +1,10 @@
 {
   "version": 2,
   "functions": {
-    "api/index.js": {
+    "src/app.js": {
+      "includeFiles": "public/**"
+    },
+    "api/**/*.js": {
       "includeFiles": "public/**"
     }
   },
