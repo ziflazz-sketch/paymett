@@ -56,7 +56,10 @@ const corsSecurity = cors({
     // Allow non-browser agents (server-to-server webhook, curl from gateway)
     if (!origin) return callback(null, true);
     
-    if (allowedOrigins.includes(origin)) {
+    const isLocal = origin.includes('localhost') || origin.includes('127.0.0.1');
+    const isVercel = origin.endsWith('.vercel.app');
+
+    if (isLocal || isVercel || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
       callback(null, true);
     } else {
       const err = new Error('CORS Policy: Request origin not permitted by security whitelist.');

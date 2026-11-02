@@ -81,9 +81,17 @@ app.use(express.static(publicDirectory, {
   maxAge: '1h'
 }));
 
-// Route for root '/' to serve index.html
+// Route for root '/' to serve index.html (with safe serverless fallback)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(publicDirectory, 'index.html'));
+  const indexPath = path.join(publicDirectory, 'index.html');
+  const fs = require('fs');
+  if (fs.existsSync(indexPath)) {
+    return res.sendFile(indexPath);
+  }
+  return res.status(200).json({
+    status: 'ONLINE',
+    service: 'Rafa Payment (Ziflazz) Unified App'
+  });
 });
 
 // ==============================================================================
