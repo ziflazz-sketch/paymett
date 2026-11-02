@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafa Payment — Kartu Pembayaran (Versi Neon Gelap)</title>
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="Rafa Payment — Set kartu pembayaran QRIS & nomor transfer manual resmi (E-Wallet & SeaBank) dari ZIFLAZZ.">
+  <meta name="author" content="ZIFLAZZ">
+  <meta property="og:title" content="Rafa Payment — Kartu Pembayaran (Versi Neon Gelap)">
+  <meta property="og:description" content="Pindai QRIS ZIFLAZZ STORE atau salin nomor transfer resmi E-Wallet & SeaBank.">
+  <meta property="og:image" content="./assets/Neon-Transfer@2x.png">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A0612">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z' fill='%233DF0FF'/></svg>">
+
+  <!-- Typography: Bricolage Grotesque -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Switcher Bar -->
+  <nav class="nav-switcher-bar" aria-label="Pilihan Pembayaran">
+    <div class="nav-tabs" role="tablist">
+      <button type="button" class="tab-btn active" data-target="qr" role="tab" aria-selected="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        QR Code
+      </button>
+
+      <button type="button" class="tab-btn tab-transfer" data-target="transfer" role="tab" aria-selected="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+          <line x1="2" y1="10" x2="22" y2="10"></line>
+        </svg>
+        Transfer Manual
+      </button>
+
+      <button type="button" class="tab-btn tab-all" data-target="all" role="tab" aria-selected="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Semua
+      </button>
+    </div>
+  </nav>
+
+  <main class="page-container">
+
+    <!-- ====================================================================
+         Halaman 1: QR (NeonQR Artboard)
+         ==================================================================== -->
+    <article class="card-board" id="boardQR" aria-label="Halaman Pembayaran QRIS">
+      <!-- Top Brand & Sparkle (Clean as in master artboard) -->
+      <div class="board-top-bar">
+        <div class="brand-badge">ziflazz</div>
+        
+        <!-- Cyan Sparkle Star -->
+        <svg class="sparkle-icon cyan" viewBox="0 0 100 100" width="56" height="56" aria-hidden="true">
+          <path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z" fill="none" stroke="#3DF0FF" stroke-width="5" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+
+      <!-- Title 'rafa' + Pill 'payment' -->
+      <div class="board-title-wrap">
+        <h1 class="board-title-rafa">rafa</h1>
+        <div class="pill-container">
+          <span class="pill-badge pill-payment">payment</span>
+        </div>
+      </div>
+
+      <!-- QR Card Section -->
+      <section class="qr-section">
+        <div class="qr-card-wrapper">
+          <!-- Floating Lime Star -->
+          <svg class="sparkle-icon lime" viewBox="0 0 100 100" width="48" height="48" aria-hidden="true" style="position: absolute; left: -28px; top: 25px; z-index: 2;">
+            <path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z" fill="none" stroke="#C6FF3D" stroke-width="5" stroke-linejoin="round"></path>
+          </svg>
+
+          <!-- White QR Card with Cyan Border & Pink Solid Offset Shadow -->
+          <div class="qr-card" id="mainQrCard">
+            <img id="staticQrImage" src="./assets/qris.png" alt="Kode QRIS Pembayaran Rafa ZIFLAZZ STORE" width="340" height="340">
+          </div>
+
+          <!-- 'scan me!' Sticker (Perched at top-right corner, clear of QR modules) -->
+          <div class="scan-sticker" aria-hidden="true">
+            scan<br>me!
+          </div>
+
+          <!-- Floating Pink Star -->
+          <svg class="sparkle-icon pink" viewBox="0 0 100 100" width="40" height="40" aria-hidden="true" style="position: absolute; right: -26px; bottom: 15px; z-index: 2;">
+            <path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z" fill="none" stroke="#FF3DA5" stroke-width="5" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+
+        <!-- Action & Instruction -->
+        <div class="qr-action-box">
+          <div class="instruction-tag" role="note">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span>Masukkan nominal sesuai tagihan Anda saat membayar.</span>
+          </div>
+
+          <button type="button" class="btn-neon-action" id="downloadQrBtn" aria-label="Unduh gambar QRIS">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Unduh QRIS</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Ticker Marquee Strip -->
+      <div class="ticker-wrapper" aria-hidden="true">
+        <div class="ticker-strip">
+          <div class="ticker-content">
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clean Footer (No print button) -->
+      <div class="board-footer">
+        <div>&copy; 2025&ndash;2026 ZIFLAZZ. All rights reserved.</div>
+      </div>
+    </article>
+
+
+    <!-- ====================================================================
+         Halaman 2: Transfer (NeonTransfer Artboard)
+         ==================================================================== -->
+    <article class="card-board hidden" id="boardTransfer" aria-label="Halaman Transfer Manual">
+      <!-- Top Brand & Pink Sparkle -->
+      <div class="board-top-bar">
+        <div class="brand-badge">ziflazz</div>
+        
+        <!-- Pink Sparkle Star -->
+        <svg class="sparkle-icon pink" viewBox="0 0 100 100" width="56" height="56" aria-hidden="true">
+          <path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z" fill="none" stroke="#FF3DA5" stroke-width="5" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+
+      <!-- Title 'transfer' + Pill 'ke rafa' -->
+      <div class="board-title-wrap">
+        <h2 class="board-title-transfer">transfer</h2>
+        <div class="pill-container">
+          <span class="pill-badge pill-ke-rafa">ke rafa</span>
+        </div>
+
+        <!-- Center Lime Sparkle Star -->
+        <svg class="sparkle-icon lime" viewBox="0 0 100 100" width="46" height="46" aria-hidden="true" style="position: absolute; right: 28%; top: 60px;">
+          <path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z" fill="none" stroke="#C6FF3D" stroke-width="5" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+
+      <!-- Two Number Cards -->
+      <section class="transfer-section">
+
+        <!-- Card 1: E-Wallet -->
+        <div class="transfer-card card-ewallet" id="cardEwallet">
+          <div class="transfer-card-left">
+            <div class="logo-frame frame-ewallet">
+              <img src="./assets/ewallet-logo.png" alt="Logo E-Wallet" width="90" height="90">
+            </div>
+            <div class="transfer-details">
+              <span class="category-pill pill-ewallet-tag">e-wallet</span>
+              <span class="transfer-number" id="ewalletNum">0821 5102 5831</span>
+            </div>
+          </div>
+          <button type="button" class="btn-copy-card" id="copyEwalletBtn" aria-label="Salin nomor E-Wallet">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Salin Nomor</span>
+          </button>
+        </div>
+
+        <!-- Card 2: SeaBank -->
+        <div class="transfer-card card-seabank" id="cardSeabank">
+          <div class="transfer-card-left">
+            <div class="logo-frame frame-seabank">
+              <img src="./assets/seabank-logo.png" alt="Logo SeaBank" width="90" height="90">
+            </div>
+            <div class="transfer-details">
+              <span class="category-pill pill-seabank-tag">seabank</span>
+              <span class="transfer-number" id="seabankNum">9015 2111 5022</span>
+            </div>
+          </div>
+          <button type="button" class="btn-copy-card" id="copySeabankBtn" aria-label="Salin nomor SeaBank">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Salin Nomor</span>
+          </button>
+        </div>
+
+        <!-- Reminder Sticker ('cek lagi nomornya ya') -->
+        <div class="reminder-sticker-wrap">
+          <span class="reminder-sticker">cek lagi nomornya ya</span>
+          
+          <!-- Cyan Sparkle Star near sticker -->
+          <svg class="sparkle-icon cyan" viewBox="0 0 100 100" width="58" height="58" aria-hidden="true" style="margin-left: auto; margin-right: 18px;">
+            <path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z" fill="none" stroke="#3DF0FF" stroke-width="5" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+
+      </section>
+
+      <!-- Ticker Marquee Strip -->
+      <div class="ticker-wrapper" aria-hidden="true">
+        <div class="ticker-strip">
+          <div class="ticker-content">
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+            <div class="ticker-item"><span>made with indonesia</span><svg class="ticker-star" viewBox="0 0 100 100"><path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0Z"></path></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clean Footer (No print button) -->
+      <div class="board-footer">
+        <div>&copy; 2025&ndash;2026 ZIFLAZZ. All rights reserved.</div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Toast Notification Pill -->
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite" aria-hidden="true">
+    <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastMessage">Nomor berhasil disalin!</span>
+  </div>
+
+  <!-- Application Logic -->
+  <script src="./js/app.js"></script>
+</body>
+</html>
